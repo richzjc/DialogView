@@ -19,7 +19,11 @@ public class DialogViewLayout extends FrameLayout implements IAnimView {
     private View dim;
     private View contentView;
     private boolean isAnimation;
+    private OnVisibleChange onVisibleChange;
 
+    public void setOnVisibleChange(OnVisibleChange onVisibleChange){
+        this.onVisibleChange = onVisibleChange;
+    }
     public DialogViewLayout(@NonNull Context context) {
         this(context, null);
     }
@@ -141,5 +145,16 @@ public class DialogViewLayout extends FrameLayout implements IAnimView {
             set.playTogether(alphaAnimation, alpha1Animation, translateAnimation);
             set.start();
         }
+    }
+
+    @Override
+    public void setVisibility(int visibility) {
+        super.setVisibility(visibility);
+        if(onVisibleChange != null)
+            onVisibleChange.onVisibleChange(visibility);
+    }
+
+    public interface OnVisibleChange{
+        void onVisibleChange(int visiblity);
     }
 }
