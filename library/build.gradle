@@ -5,7 +5,7 @@ publish {
     userOrg = 'richzjc'
     groupId = 'com.richzjc'
     artifactId = 'dialog_view'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.2'
     desc = '通过自定义view 来实现类似于dialog的效果'
     website = 'https://github.com/novoda/bintray-release'
 }
