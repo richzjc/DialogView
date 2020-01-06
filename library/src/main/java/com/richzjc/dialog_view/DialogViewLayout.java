@@ -147,6 +147,13 @@ public class DialogViewLayout extends FrameLayout implements IAnimView {
         }
     }
 
+    public void toggle(){
+        if(getVisibility() == View.VISIBLE)
+            endAnim();
+        else
+            startAnim();
+    }
+
     @Override
     public void setVisibility(int visibility) {
         super.setVisibility(visibility);
